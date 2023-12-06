@@ -29,8 +29,9 @@ class GraficoCompuesto(Graficable, ABC):
     def load_components(self) -> None:...
     
 
-class Linea(ABC):
-    def __init__(self, start: Sequence[float], end: Sequence[float]) -> None:
+class Linea(Graficable, ABC):
+    def __init__(self, start: Sequence[float], end: Sequence[float], color: Sequence[float]) -> None:
+        super().__init__(color)
         self.start = np.array(start)
         self.end = np.array(end)
     
@@ -39,13 +40,21 @@ class Linea(ABC):
     
     
 class Polygon(GraficoCompuesto, ABC):
-    def __init__(self, points: Sequence[Sequence[float]], color: Sequence[float]) -> None:
+    def __init__(self, points: Sequence[Sequence[float]], color: Sequence[float], fill=False, closed=True) -> None:
+        self.points = np.array(points)
+        self.fill = fill
+        self.closed
         super().__init__(color)
-        self.points = points
     
+    @override
+    def draw(self) -> None:
+        if self.fill:
+            self.draw_filled()
+        else:
+            super().draw()
+            
+    @abstractclassmethod
+    def draw_filled(self) -> None:...
+        
     @abstractclassmethod
     def load_components(self) -> None:...
-    
-    @abstractclassmethod
-    def draw(self, canvas) -> None:...
-        
