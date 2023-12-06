@@ -12,6 +12,14 @@ def polar_to_cartesian(point: Sequence[float]) -> np.ndarray:
     t,r = point
     return np.array([r*np.cos(t), r*np.sin(t)]).T
 
+def cilindro_to_cartesian(point: Sequence[float]) -> np.ndarray:
+    t,r,z = point
+    return np.array([r*np.cos(t), r*np.sin(t), z])
+
+def esfera_to_cartesian(point: Sequence[float]) -> np.ndarray:
+    t,f,p = point
+    return np.array([p*np.sin(f)*np.cos(t), p*np.sin(f)*np.sin(t), p*np.cos(f)])
+
 def transformacion(matriz: np.ndarray, point: Sequence) -> np.ndarray:
     return np.matmul(matriz, point)
 
