@@ -1,4 +1,4 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 from typing import Sequence, Callable
 import numpy as np
 from util import *
@@ -11,10 +11,10 @@ class Funcion:
         self.dominio = np.array(dominio)
         self.func = func
         
-    @abstractclassmethod
+    @abstractmethod
     def load_range(self) -> np.ndarray: ...
     
-    @abstractclassmethod
+    @abstractmethod
     def get_points(self) -> np.ndarray: ...
 
 class FuncionUnaVar(Funcion):

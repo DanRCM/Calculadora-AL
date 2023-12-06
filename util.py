@@ -1,6 +1,7 @@
 from typing import Callable, Sequence
 import numpy as np
 
+matriz_2D = np.array([[1,0], [0,1]])
 matriz_rotacion_2d = lambda t: np.array([[np.cos(t), -np.sin(t)],
                                          [np.sin(t), np.cos(t)]])
 
@@ -8,7 +9,7 @@ def override(func: Callable) -> Callable:
     return func
 
 def polar_to_cartesian(point: Sequence[float]) -> np.ndarray:
-    r,t = point
+    t,r = point
     return np.array([r*np.cos(t), r*np.sin(t)]).T
 
 def transformacion(matriz: np.ndarray, point: Sequence) -> np.ndarray:
