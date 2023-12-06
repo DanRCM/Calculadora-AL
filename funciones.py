@@ -6,6 +6,12 @@ from util import *
 def range1(start: float, end: float, slices: int):
     return np.linspace(start, end, slices)
 
+def rango_cartesiano():
+    return range1(-20,20,1000)
+
+def rango_polar():
+    return range1(0, 2*np.pi, 1000)
+
 class Funcion:
     def __init__(self, dominio: Sequence, func: Callable) -> None:
         self.dominio = np.array(dominio)

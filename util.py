@@ -21,7 +21,7 @@ def rotacion2D(point: Sequence[float], theta: float) -> np.ndarray:
 def recolectar_colas_vector2D(vector: np.ndarray) -> np.ndarray:
     if vector[0] == 0 and vector[1] == 0:
         return vector
-    u = -vector/np.linalg.norm(vector)
+    u = -vector/(2*np.linalg.norm(vector))
     cola_1 = rotacion2D(u, np.pi/4)
     cola_2 = rotacion2D(u, -np.pi/4)
     return cola_1, cola_2
