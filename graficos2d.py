@@ -3,7 +3,7 @@ from funciones import *
 
 matriz_2D = np.array([[1,0], [0,1]])
 
-class Linea2D(Linea, Graficable):
+class Linea2D(Linea):
     @override
     def draw(self) -> None:
         glBegin(GL_LINES)
@@ -66,7 +66,7 @@ class Circulo2D(Curva2D):
 
 class Point2D(Circulo2D):
     def __init__(self, coord: Sequence[float], color: Sequence[float]):
-        super(coord, 5, color, fill=True)
+        super().__init__(coord, 0.1, color, fill=True)
         
 class Grid(GraficoCompuesto):
     def __init__(self, color: Sequence[float]) -> None:
