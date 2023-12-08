@@ -88,7 +88,6 @@ class Grid(GraficoCompuesto):
 class Plano2D(SuperContainer):
     def __init__(self, color_axisas: Sequence[Sequence[float]]=[[255,255,255], [255,255,255]], color: Sequence[float]=[0,0,0]) -> None:    
         super().__init__(color_axisas, color)
-        self.config_gl()
     
     @override    
     def load_components(self) -> None:

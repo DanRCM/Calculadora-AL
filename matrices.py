@@ -1,5 +1,13 @@
 import numpy as np
 
-matriz_2D = np.array([[1,0], [0,1]])
-matriz_rotacion_2d = lambda t: np.array([[np.cos(t), -np.sin(t)],
-                                         [np.sin(t), np.cos(t)]])
+a = np.array([[0,0],
+              [0,1],
+              [0,2],
+              [1,0],
+              [1,1],
+              [1,2],
+              [2,0],
+              [2,1],
+              [2,2]])
+
+print(np.array(np.split(a,3)))

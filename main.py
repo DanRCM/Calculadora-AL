@@ -1,5 +1,6 @@
-import graficos2d
-from graficos2d import *
+import graficos3d
+from graficos3d import *
 
-plano = Plano2D()
-plano.run()
+espacio = Espacio3D()
+
+espacio.run()

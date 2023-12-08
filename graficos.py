@@ -70,10 +70,10 @@ class SuperContainer(GraficoCompuesto, ABC):
         self.axes_color = color_axisas
         py.init()
         super().__init__(color) 
-        self.clock = py.time.Clock()
         self.running = True
         self.size = (width, height) = (1300, 700)
         self.screen = py.display.set_mode(self.size, DOUBLEBUF | OPENGL)
+        self.config_gl()
     
     def run(self) -> None:
         while self.running:
@@ -83,7 +83,7 @@ class SuperContainer(GraficoCompuesto, ABC):
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
             self.draw()
             py.display.flip()
-            self.clock.tick(60)
+            py.time.wait(10)
             
     @override
     def add_components(self, *components: Graficable) -> None:

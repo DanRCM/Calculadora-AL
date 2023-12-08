@@ -34,4 +34,20 @@ def recolectar_colas_vector2D(vector: np.ndarray) -> np.ndarray:
     cola_2 = rotacion2D(u, -np.pi/4)
     return cola_1, cola_2
     
+def recolectar_circulo_vector3D(vector: np.ndarray) -> np.ndarray:
+    if vector[2] == 0:
+        u1,u2 = np.array([1,0,0]) , np.array([0,1,0])
+    else:
+        x,y,z = vector
+        a = z / (x**2 + z**2) ** 0.5
+        c = -a*x / z
+        u1 = np.array([a,0,c])
+        v2 = np.cross(vector, u1)
+        u2 = v2/np.linalg.norm(v2)
+    m = np.array([u1,u2]).T
+    r = lambda t: np.matmul(m, np.array([np.cos(t),np.sin(t)]))
+    muestras = np.linspace(0,2*np.pi,100)
 
+    circulo = r(muestras).T/5
+    return circulo
+     
