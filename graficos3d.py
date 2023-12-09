@@ -78,7 +78,6 @@ class Esfera(Superficie):
     def __init__(self, centro: Sequence[float], radio: float, color: Sequence[float], border=True) -> None:
         self.radio = radio
         self.centro = np.array(centro)
-        self.border = border
         func = FuncionParametricaDosVar(range2([0,2*np.pi],[0,np.pi],10), lambda t,f: np.array([
             self.centro[0]+radio*np.sin(f)*np.cos(t), 
             self.centro[1]+radio*np.sin(f)*np.sin(t),
@@ -88,7 +87,7 @@ class Esfera(Superficie):
 
 class Point3D(Esfera):
     def __init__(self, coord: Sequence[float], color: Sequence[float]):
-        super().__init__(coord, 0.1, color, border=False)
+        super().__init__(coord, 0.05, color, border=False)
     
 class Espacio3D(SuperContainer):
     def __init__(self, color_axisas: Sequence[Sequence[float]]=[[255,0,0], [0,255,0], [255,255,255]], color: Sequence[float]=[0,0,0]) -> None:    
